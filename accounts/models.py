@@ -4,3 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     pass
+
+class UserFollow(models.Model):
+    following = models.ManyToManyField(User, related_name='following')
+    follower = models.ManyToManyField(User, related_name='follower')
